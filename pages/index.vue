@@ -71,15 +71,12 @@
     </div>
 
     <ul v-if="websiteStore.notes.length" class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
-      <li
+      <NoteCard
         v-for="note in websiteStore.notes"
         :key="note._id"
-        class="p-4 bg-gray-100 rounded shadow-sm hover:shadow-md transition-shadow mx-auto"
-        style="max-width: 500px;"
-      >
-        <h3 class="font-semibold text-gray-700 truncate mb-2">{{ note.name }}</h3>
-        <p class="text-gray-800">{{ note.text }}</p>
-      </li>
+        :notename="note.name"
+        :text="note.text"
+    />
     </ul>
   </div>
 </template>
