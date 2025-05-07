@@ -1,4 +1,5 @@
 # Nuxt-notes
+<img src="https://raw.githubusercontent.com/ar2rworld/nuxt-notes/refs/heads/master/public/favicon.ico" />
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
