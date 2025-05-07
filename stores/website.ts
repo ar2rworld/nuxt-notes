@@ -33,6 +33,20 @@ export const useWebsiteStore = defineStore('websiteStore', {
       })
       
       this.notes = this.notes.filter(note => note._id !== noteId);;
+    },
+    async updateNote(noteId: string, updates: { notename?: string; text?: string }) {
+      await $fetch(`/back/notes/${noteId}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': this.token,
+          'Content-Type': 'application/json'
+        },
+        body: updates
+      })
+      
+      this.notes = this.notes.map(note => 
+        note._id === noteId ? { ...note, ...updates } : note
+      )
     }
   }
 })
