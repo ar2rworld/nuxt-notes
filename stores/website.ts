@@ -34,7 +34,7 @@ export const useWebsiteStore = defineStore('websiteStore', {
       
       this.notes = this.notes.filter(note => note._id !== noteId);;
     },
-    async updateNote(noteId: string, updates: { notename?: string; text?: string }) {
+    async updateNote(noteId: string, updates: { name?: string; text?: string }) {
       await $fetch(`/back/notes/${noteId}`, {
         method: 'PUT',
         headers: {
