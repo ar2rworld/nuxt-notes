@@ -2,10 +2,10 @@
 import type { FormError, FormSubmitEvent } from '@nuxt/ui';
 
 const state = reactive({
-  username: "user_123",
-  password: "mypassword",
-  newUsername: "user_123",
-  newPassword: "mypassword",
+  username: "",
+  password: "",
+  newUsername: "",
+  newPassword: "",
 })
 
 const validate = (state): FormError[] => {
@@ -64,6 +64,8 @@ async function onSubmitRegister(event: FormSubmitEvent<typeof state>) {
     return
   }
 
+  state.newUsername = ''
+  state.newPassword = ''
   toast.success({ title: 'Success', message: 'User registered successfully.' })
 }
 </script>
