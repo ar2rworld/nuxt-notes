@@ -25,7 +25,7 @@ const validateRegister = (state): FormError[] => {
 const toast = useToast()
 
 async function onSubmit(event: FormSubmitEvent<typeof state>) {
-  const { data, error } = await useFetch('/api/auth/login', {
+  const { data, error } = await useFetch('/back/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ async function onSubmit(event: FormSubmitEvent<typeof state>) {
   router.push('/');
 } 
 async function onSubmitRegister(event: FormSubmitEvent<typeof state>) {
-  const { error } = await useFetch('/api/auth/register', {
+  const { error } = await useFetch('/back/auth/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

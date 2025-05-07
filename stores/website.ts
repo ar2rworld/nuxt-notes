@@ -15,7 +15,7 @@ export const useWebsiteStore = defineStore('websiteStore', {
       await this.getNotes()
     },
     async getNotes() {
-      const { data } = await useFetch('/api/notes', {
+      const { data } = await useFetch('/back/notes', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -23,6 +23,16 @@ export const useWebsiteStore = defineStore('websiteStore', {
         },
       })
       this.notes = data
+    },
+    async deleteNote(noteId: string) {
+      await $fetch(`/back/notes/${noteId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': this.token,
+        },
+      })
+      
+      this.notes = this.notes.filter(note => note._id !== noteId);;
     }
   }
 })

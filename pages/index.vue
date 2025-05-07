@@ -9,7 +9,7 @@
   });
 
   async function onSubmitNote(event: FormSubmitEvent<typeof state>) {
-    const { data, error } = await useFetch('/api/notes', {
+    const { data, error } = await useFetch('/back/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,10 +73,11 @@
     <ul v-if="websiteStore.notes.length" class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
       <NoteCard
         v-for="note in websiteStore.notes"
+        :id="note._id"
         :key="note._id"
         :notename="note.name"
         :text="note.text"
-    />
-    </ul>
+        />
+      </ul>
   </div>
 </template>

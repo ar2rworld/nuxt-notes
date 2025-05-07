@@ -13,21 +13,34 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
-    '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
     '@pinia/nuxt',
-    'nuxt-toast'
+    'nuxt-toast',
+    'nuxt-icon'
   ],
+  icon: {
+    serverBundle: {
+      collections: ['uil']
+    }
+  },
+  nuxtIcon: {
+    size: '24px', // default <Icon> size applied
+    class: '', // default <Icon> class applied
+    aliases: {
+      'nuxt': 'logos:nuxt-icon',
+    }
+  },
   vite: {
     plugins: [tailwindcss()],
     server: {
       proxy: {
-        '/api': {
+        '/back': {
           target: 'http://localhost:3010',
           changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/back/, '/api'),
         },
       },
     },

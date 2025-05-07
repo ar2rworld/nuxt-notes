@@ -1,9 +1,12 @@
 <template>
-  <li
-    class="p-4 bg-white rounded-lg shadow transition-shadow hover:shadow-md mx-auto"
-    style="max-width: 500px;"
-  >
-    <h3 class="text-lg font-semibold text-gray-800 mb-1 truncate">
+  <li class="p-4 bg-white rounded-lg shadow transition-shadow hover:shadow-md mx-auto relative" style="max-width: 500px;">
+    <button 
+      class="absolute top-2 right-2 p-2 text-gray-500 hover:text-red-500 transition-colors"
+      @click="handleDelete" 
+    >
+      <Icon name="uil:trash" style="color: black" />
+    </button>
+    <h3 class="text-lg font-semibold text-gray-800 mb-1 truncate pr-8">
       {{ notename }}
     </h3>
     <p class="text-sm text-gray-600">
@@ -13,7 +16,9 @@
 </template>
 
 <script setup>
-defineProps({
+const store = useWebsiteStore();
+const toast = useToast();
+const props = defineProps({
   id: {
     type: String,
     default: '',
@@ -27,4 +32,12 @@ defineProps({
     required: true,
   },
 });
+
+const handleDelete = () => {
+  store.deleteNote(props.id).then(() => {
+    toast.success({title: "Success", message: "Note deleted successfully"});
+  }).catch((error) => {
+    toast.error({title: "Error", message: error.toString()});
+  });
+}
 </script>
