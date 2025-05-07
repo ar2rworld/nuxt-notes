@@ -1,4 +1,4 @@
-# Nuxt Minimal Starter
+# Nuxt-notes
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -27,6 +27,11 @@ Start the development server on `http://localhost:3000`:
 ```bash
 # npm
 npm run dev
+
+# fix your .env file
+# start backend
+cd backend
+node server.js
 
 # pnpm
 pnpm dev
