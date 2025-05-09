@@ -1,6 +1,9 @@
 # Nuxt-notes
 <img src="https://raw.githubusercontent.com/ar2rworld/nuxt-notes/refs/heads/master/public/favicon.ico" />
 
+## Demo video
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/VHcsI8qGGgw/0.jpg)](http://www.youtube.com/watch?v=VHcsI8qGGgw "Video Title")
+
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
